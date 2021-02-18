@@ -1,0 +1,17 @@
+# Site settings
+title: "Acanit - light IT up"
+email:
+description: > # this means to ignore newlines until "baseurl:"
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "https://www.acanit.com"
+
+twitter_username:
+github_username:
+
+# Build settings
+markdown: kramdown
+
+languages: ["pl", "en"]
+exclude_from_localizations: ["javascript", "images", "css", "font-awesome", "fonts", "js", "img"]
+
+
