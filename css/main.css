@@ -1,7 +1,5 @@
 html, body { height: 100%; width: 100%; }
 
-body { font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif; }
-
 hr { border-color: #BE1621; border-width: 3px; max-width: 50px; }
 
 hr.light { border-color: white; }
@@ -121,5 +119,13 @@ img::selection { color: white; background: transparent; }
 img::-moz-selection { color: white; background: transparent; }
 
 body { -webkit-tap-highlight-color: #222; }
+
+.icon-custom-cloud { background-image: url("../img/chmura.svg"); background-position: center center; }
+
+footer { height: 30px; width: 100%; position: relative; }
+
+.footer { margin: 0; position: absolute; width: 100%; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%); }
+
+.svg { fill: #BE1621; }
 
 /*# sourceMappingURL=main.css.map */
