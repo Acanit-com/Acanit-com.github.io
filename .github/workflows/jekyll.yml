@@ -1,0 +1,28 @@
+name: Jekyll site CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the site in the jekyll/builder container
+      run: |
+        docker run \
+        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
+        jekyll/builder:latest /bin/bash -c "chmod 777 /srv/jekyll && jekyll build --future"
+        
+    - name: Deploy to Azure Web App
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'acanit'
+        slot-name: 'production'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_2ad096b423f34344a21625a7500a6cb1 }}
+        package: /srv/jekyll/_site
