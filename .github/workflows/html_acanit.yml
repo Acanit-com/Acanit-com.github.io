@@ -19,6 +19,12 @@ jobs:
     - name: Setup MSBuild path
       uses: microsoft/setup-msbuild@v1.0.2
 
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.5
+
+    - name: Restore NuGet packages
+      run: nuget restore
+
     - name: Publish to folder
       run: msbuild /nologo /verbosity:m /t:Build /t:pipelinePreDeployCopyAllFilesToOneFolder /p:_PackageTempDir="\published\"
 
@@ -27,5 +33,5 @@ jobs:
       with:
         app-name: 'acanit'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_2ad096b423f34344a21625a7500a6cb1 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_d2c1a06e9dec483c93cc2a687c21b66c }}
         package: \published\
